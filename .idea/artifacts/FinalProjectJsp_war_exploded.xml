@@ -1,0 +1,37 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="FinalProjectJsp:war exploded">
+    <output-path>$PROJECT_DIR$/target/JspFinal</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="FinalProjectJsp" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.18" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.3" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: com.j256.ormlite:ormlite-core:4.48" />
+          <element id="library" level="project" name="Maven: com.j256.ormlite:ormlite-jdbc:3.4" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.6" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/JspFinal/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="FinalProjectJsp/web/Web" />
+    </root>
+  </artifact>
+</component>
