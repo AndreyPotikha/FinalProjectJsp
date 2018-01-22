@@ -21,11 +21,11 @@
 
         <div class="col-md-4">
             <section class="login-form">
-                <form method="post" action="#" role="login">
+                <form method="get" action="/login" role="login">
                     <img src="image/mainpage.png" class="img-responsive" alt="" width="300" height="110"/>
                     <input type="email" name="email" placeholder="Email" required class="form-control input-lg"/>
 
-                    <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+                    <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Password"/>
 
 
                     <div class="pwstrength_viewport_progress"></div>

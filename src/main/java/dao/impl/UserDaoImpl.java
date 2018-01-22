@@ -14,7 +14,7 @@ public class UserDaoImpl implements UserDao {
     private static final String SAVE_USER = "INSERT INTO user (email, password, status) VALUE (?,?,?)";
     private static final String FIND_USER = "SELECT * FROM user";
     private static final String DELETE_USER = "INSERT INTO user (email, password, status) VALUE ()";
-    private static final String UPDATE_USER = "UPDATE user SET password (?) WHERE email (?)";
+    private static final String UPDATE_USER = "UPDATE user SET password = (?) WHERE email = (?)";
 
 
 
@@ -45,7 +45,9 @@ public class UserDaoImpl implements UserDao {
             while (resultSet.next()) {
                 User searchUser = new User();
                 String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
                 searchUser.setEmail(email);
+                searchUser.setPassword(password);
                 userList.add(searchUser);
             }
 
@@ -67,7 +69,7 @@ public class UserDaoImpl implements UserDao {
         try (Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)) {
             preparedStatement.setString(1, pass);
-            preparedStatement.setString(2,email);
+            preparedStatement.setString(2, email);
 
             preparedStatement.execute();
 
