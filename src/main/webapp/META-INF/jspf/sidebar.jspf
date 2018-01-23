@@ -1,0 +1,19 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div class="container">
+    <br />
+
+    <div class="row">
+        <div class="col-sm-2">
+            <nav class="nav-sidebar">
+                <ul class="nav">
+                    <li class="active"><a href="homeInfo.jsp">Home</a></li>
+                    <li><a href="laptop.jsp">Laptop</a></li>
+                    <li><a href="javascript:;">Phone</a></li>
+                    <li><a href="javascript:;">Table</a></li>
+                    <li class="nav-divider"></li>
+                    <li><a href="index.jsp"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

@@ -25,6 +25,6 @@ public class ResetNewPasswordServlate extends HttpServlet {
         UserService userService = new UserServiceImpl();
         String email = ResetPasswordServlet.email;
         userService.updateUserPass(email, encodePass);
-        req.getRequestDispatcher("all.jsp").forward(req, resp);
+        req.getRequestDispatcher("homeInfo.jsp").forward(req, resp);
     }
 }

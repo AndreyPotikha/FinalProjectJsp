@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         List<User> userList = userService.findUser();
         for (User elem : userList) {
             if (email.equals(elem.getEmail()) && checkPassService.checkPass(password)) {
-                req.getRequestDispatcher("all.jsp").forward(req, resp);
+                req.getRequestDispatcher("homeInfo.jsp").forward(req, resp);
             }
         }
 

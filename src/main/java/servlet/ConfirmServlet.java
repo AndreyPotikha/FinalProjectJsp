@@ -27,7 +27,7 @@ public class ConfirmServlet extends HttpServlet{
         System.out.println(randomConfirm);
 
         if (confirm.equals(randomConfirmStrin)) {
-            req.getRequestDispatcher("all.jsp").forward(req, resp);
+            req.getRequestDispatcher("homeInfo.jsp").forward(req, resp);
             AdminService adminService = new AdminServiceImpl();
             List<Admin> admin = adminService.findAdmin();
             User user = new User();

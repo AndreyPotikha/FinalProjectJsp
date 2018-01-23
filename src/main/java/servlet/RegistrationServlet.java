@@ -71,7 +71,7 @@ public class RegistrationServlet extends HttpServlet{
             if (calc != userList.size()) {
                 req.getRequestDispatcher("registration.jsp").forward(req, resp);
             } else {
-                req.getRequestDispatcher("all.jsp").forward(req, resp);
+                req.getRequestDispatcher("homeInfo.jsp").forward(req, resp);
                 userService.saveUser(user);
             }
         }
