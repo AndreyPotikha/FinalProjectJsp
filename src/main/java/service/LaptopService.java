@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface LaptopService {
 
-    void getLaptops();
+    List<Laptop> getLaptops();
 
     void delLaptops(Laptop laptop);
 

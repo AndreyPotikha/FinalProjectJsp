@@ -18,7 +18,7 @@ public class LaptopDaoImpl implements LaptopDao {
     private static final String FIND_LAPTOP = "SELECT * FROM laptop";
 
     @Override
-    public void getLaptops() {
+    public List<Laptop> getLaptops() {
 
         List<Laptop> laptops = new ArrayList<>();
         try (Connection connection = Database.getConnection();
@@ -28,6 +28,7 @@ public class LaptopDaoImpl implements LaptopDao {
 
             while (resultSet.next()) {
                 Laptop laptop = new Laptop();
+                String img = resultSet.getString("imgPath");
                 String name = resultSet.getString("name");
                 String cpu = resultSet.getString("cpu");
                 String ram = resultSet.getString("ram");
@@ -38,6 +39,7 @@ public class LaptopDaoImpl implements LaptopDao {
                 laptop.setRam(ram);
                 laptop.setVideoCard(videoCard);
                 laptop.setHardMemory(hardMemory);
+                laptop.setImgPath(img);
                 laptops.add(laptop);
             }
 
@@ -45,8 +47,9 @@ public class LaptopDaoImpl implements LaptopDao {
             e.printStackTrace();
         }
 
-
+        return laptops;
     }
+
 
 
     @Override

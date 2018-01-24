@@ -7,7 +7,6 @@ public class RegistrationSecurityServiceImpl implements RegistrationSecurityServ
 
     public String registrationService(String password) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encode = passwordEncoder.encode(password);
-        return encode;
+        return passwordEncoder.encode(password);
     }
 }

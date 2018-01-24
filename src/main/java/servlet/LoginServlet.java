@@ -27,12 +27,22 @@ public class LoginServlet extends HttpServlet {
         CheckPassService checkPassService = new CheckPassServiceImpl();
         UserService userService = new UserServiceImpl();
         List<User> userList = userService.findUser();
+
+
         for (User elem : userList) {
             if (email.equals(elem.getEmail()) && checkPassService.checkPass(password)) {
                 req.getRequestDispatcher("homeInfo.jsp").forward(req, resp);
             }
         }
 
+        LaptopServlet laptopServlet = new LaptopServlet();
+        laptopServlet.doPost(req,resp);
+
+        PhoneServlet phoneServlet = new PhoneServlet();
+        phoneServlet.doPost(req, resp);
+
+        TableServlet tableServlet = new TableServlet();
+        tableServlet.doPost(req, resp);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
 

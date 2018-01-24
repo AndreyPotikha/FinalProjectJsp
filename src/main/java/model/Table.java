@@ -1,6 +1,5 @@
 package model;
 
-
 import lombok.*;
 
 @Getter
@@ -8,12 +7,11 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(exclude = "id")
-public class Laptop {
+public class Table {
 
     private String name;
-    private String cpu;
-    private String ram;
-    private String videoCard;
-    private String hardMemory;
+    private String diagonal;
+    private String wifi;
+    private String os;
     private String imgPath;
 }

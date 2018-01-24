@@ -8,8 +8,8 @@
                 <ul class="nav">
                     <li class="active"><a href="homeInfo.jsp">Home</a></li>
                     <li><a href="laptop.jsp">Laptop</a></li>
-                    <li><a href="javascript:;">Phone</a></li>
-                    <li><a href="javascript:;">Table</a></li>
+                    <li><a href="phone.jsp">Phone</a></li>
+                    <li><a href="table.jsp">Table</a></li>
                     <li class="nav-divider"></li>
                     <li><a href="index.jsp"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                 </ul>

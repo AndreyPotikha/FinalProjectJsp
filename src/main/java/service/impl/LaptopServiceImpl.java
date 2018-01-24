@@ -9,9 +9,9 @@ import java.util.List;
 
 public class LaptopServiceImpl implements LaptopService {
     @Override
-    public void getLaptops() {
+    public List<Laptop> getLaptops() {
         LaptopDao laptopDao = new LaptopDaoImpl();
-        laptopDao.getLaptops();
+        return laptopDao.getLaptops();
     }
 
     @Override
