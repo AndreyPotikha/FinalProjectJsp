@@ -40,13 +40,21 @@
         </div>
   </c:forEach>
     </div>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ page contentType="text/html;charset=UTF-8" language="java"  session="true" %>
+
+    <%
+        String status = (String) session.getAttribute("userStatus");
+    %>
+
+    <%
+        if (status.equals("Admin")) {
+    %>
+
+    <a href="#">ADD NEW PHON</a>
+    <%}%>
 </div>
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>

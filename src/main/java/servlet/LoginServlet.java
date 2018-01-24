@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class LoginServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
+        HttpSession session = req.getSession();
+
         CheckPassService checkPassService = new CheckPassServiceImpl();
         UserService userService = new UserServiceImpl();
         List<User> userList = userService.findUser();
@@ -31,6 +34,9 @@ public class LoginServlet extends HttpServlet {
 
         for (User elem : userList) {
             if (email.equals(elem.getEmail()) && checkPassService.checkPass(password)) {
+                session.setAttribute("userEmail", elem.getEmail());
+                session.setAttribute("userStatus", elem.getStatus());
+                session.setAttribute("userName", elem.getName());
                 req.getRequestDispatcher("homeInfo.jsp").forward(req, resp);
             }
         }

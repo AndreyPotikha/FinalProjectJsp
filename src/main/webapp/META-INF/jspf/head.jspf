@@ -1,3 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div id="menu">
+    <div class="container">
+        <div class="col-md-3">
+            <form method="post" action="/home">
+                <button type="submit" name="Home" class="btn btn-lg btn-primary btn-block">Home</button>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <form method="post" action="/contact">
+                <button type="submit" name="contact" class="btn btn-lg btn-primary btn-block">Contact</button>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <form method="post" action="/profile">
+                <button type="submit" name="profile" class="btn btn-lg btn-primary btn-block">Profile</button>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <form method="post" action="/logout">
+                <button type="submit" name="logout" class="btn btn-lg btn-primary btn-block">Logout</button>
+            </form>
+        </div>
+    </div>
 </div>

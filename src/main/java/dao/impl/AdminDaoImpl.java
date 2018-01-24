@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AdminDaoImpl implements AdminDao {
 
-    private static final String ADD_ADMIN = "INSERT INTO admin (email, password) VALUE (?, ?)";
+    private static final String ADD_ADMIN = "INSERT INTO admin (email, password, name) VALUE (?, ?, ?)";
     private static final String SEARCH_ADMIN = "SELECT * FROM admin";
     private static final String DELL_ADMIN = "DELETE FROM admin";
 
@@ -21,6 +21,7 @@ public class AdminDaoImpl implements AdminDao {
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_ADMIN)){
             preparedStatement.setString(1, admin.getEmail());
             preparedStatement.setString(2, admin.getPassword());
+            preparedStatement.setString(3, admin.getName());
 
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -40,8 +41,10 @@ public class AdminDaoImpl implements AdminDao {
                 Admin searchAdmin = new Admin();
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
+                String name = resultSet.getString("name");
                 searchAdmin.setEmail(email);
                 searchAdmin.setPassword(password);
+                searchAdmin.setName(name);
                 searchAdmin.setStatus("Admin");
                 allAdmins.add(searchAdmin);
             }

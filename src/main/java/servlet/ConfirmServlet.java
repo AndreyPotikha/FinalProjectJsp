@@ -23,10 +23,10 @@ public class ConfirmServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String confirm = req.getParameter("confirm");
         int randomConfirm = EmailSenderAdminServiceImpl.randomConfirm;
-        String randomConfirmStrin = String.valueOf(randomConfirm);
+        String randomConfirmString = String.valueOf(randomConfirm);
         System.out.println(randomConfirm);
 
-        if (confirm.equals(randomConfirmStrin)) {
+        if (confirm.equals(randomConfirmString)) {
             req.getRequestDispatcher("homeInfo.jsp").forward(req, resp);
             AdminService adminService = new AdminServiceImpl();
             List<Admin> admin = adminService.findAdmin();
@@ -35,6 +35,7 @@ public class ConfirmServlet extends HttpServlet{
                 user.setEmail(elem.getEmail());
                 user.setPassword(elem.getPassword());
                 user.setStatus(elem.getStatus());
+                user.setName(elem.getName());
             }
             UserService userService = new UserServiceImpl();
             userService.saveUser(user);

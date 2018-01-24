@@ -24,7 +24,7 @@
 <%@include file="META-INF/jspf/head.jspf"%>
 
 <section>
-    <form method="post" action="#" role="login">
+    <form method="post" action="/profile" role="login">
     <div class="row">
         <div class="container">
             <div class="col-md-3">
@@ -41,6 +41,7 @@
                 <h3></h3>
             </div>
         </div>
+    </div>
     </div>
     </form>
 </section>

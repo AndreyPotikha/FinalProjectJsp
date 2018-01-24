@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,15 +28,19 @@ public class RegistrationServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
+        String name = req.getParameter("name");
         String checkbox = req.getParameter("checkbox");
 
+        HttpSession session = req.getSession();
+
         RegistrationSecurityService registrationSecurityService = new RegistrationSecurityServiceImpl();
-        String encodPass = registrationSecurityService.registrationService(password);
+        String encodePass = registrationSecurityService.registrationService(password);
 
         if (checkbox != null) {
             Admin admin = new Admin();
             admin.setEmail(email);
-            admin.setPassword(encodPass);
+            admin.setPassword(encodePass);
+            admin.setName(name);
             AdminService adminService = new AdminServiceImpl();
             adminService.deleteAdmin();
             UserService userService = new UserServiceImpl();
@@ -49,6 +54,10 @@ public class RegistrationServlet extends HttpServlet{
             if (calc != findUsers.size()) {
                 req.getRequestDispatcher("registration.jsp").forward(req, resp);
             } else {
+                session.setAttribute("userEmail", email);
+                session.setAttribute("userStatus", "Admin");
+                session.setAttribute("userName", name);
+
                 req.getRequestDispatcher("confirmation.jsp").forward(req, resp);
                 adminService.saveAdmin(admin);
                 EmailSenderAdminService emailSenderService = new EmailSenderAdminServiceImpl();
@@ -57,7 +66,8 @@ public class RegistrationServlet extends HttpServlet{
         } else {
             User user = new User();
             user.setEmail(email);
-            user.setPassword(encodPass);
+            user.setPassword(encodePass);
+            user.setName(name);
             user.setStatus("User");
 
             UserService userService = new UserServiceImpl();
@@ -71,6 +81,10 @@ public class RegistrationServlet extends HttpServlet{
             if (calc != userList.size()) {
                 req.getRequestDispatcher("registration.jsp").forward(req, resp);
             } else {
+                session.setAttribute("userEmail", email);
+                session.setAttribute("userStatus", "User");
+                session.setAttribute("userName", name);
+
                 req.getRequestDispatcher("homeInfo.jsp").forward(req, resp);
                 userService.saveUser(user);
             }
