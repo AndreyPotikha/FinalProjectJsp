@@ -14,12 +14,14 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <jsp:useBean id="workWithJson" scope="application" class="service.WorkWithJson"/>
 
 <%@include file="META-INF/jspf/head.jspf"%>
 
+<form method="post" action="#" role="login">
 <div class="row">
     <div class="container">
         <div class="col-md-3">
@@ -40,22 +42,7 @@
   </c:forEach>
     </div>
 </div>
-
-<%--<section>
-
-        <c:forEach items="${workWithJson.json}" var="elem">
-            <div class="card">
-                <img class="card-img-top" src="${elem.name}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">${elem.cpu}</h5>
-                    <p class="card-text">${elem.ram}</p>
-                    <p class="card-text">${elem.hardMemory}</p>
-                    <h5 class="card-title" style="color: red">${elem.videoCard}</h5>
-                    <a href="#" class="btn btn-primary">GO</a>
-                </div>
-            </div>
-        </c:forEach>
-</section>--%>
+</form>
 <br>
 <br>
 <br>
