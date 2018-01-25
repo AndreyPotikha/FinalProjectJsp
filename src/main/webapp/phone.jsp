@@ -31,7 +31,7 @@
         <div class="col-md-3">
             <br>
             <br>
-            <img class="card-img-top" src="${elem.imgPath}" height="140" width="110" alt="Card image cap">
+            <img class="card-img-top" src="${elem.imgPath}" height="150" width="140" alt="Card image cap">
             <h4 class="card-text">${elem.name}</h4>
             <p class="card-text">${elem.diagonal}</p>
             <p class="card-text">${elem.wifi}</p>
@@ -51,7 +51,7 @@
         if (status.equals("Admin")) {
     %>
 
-    <a href="#">ADD NEW PHON</a>
+    <a href="addNewPhone.jsp">ADD NEW PHON</a>
     <%}%>
 </div>
 </form>

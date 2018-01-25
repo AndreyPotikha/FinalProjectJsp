@@ -44,11 +44,12 @@ public class LoginServlet extends HttpServlet {
         LaptopServlet laptopServlet = new LaptopServlet();
         laptopServlet.doPost(req,resp);
 
+        TableServlet tableServlet = new TableServlet();
+        tableServlet.doPost(req, resp);
+
         PhoneServlet phoneServlet = new PhoneServlet();
         phoneServlet.doPost(req, resp);
 
-        TableServlet tableServlet = new TableServlet();
-        tableServlet.doPost(req, resp);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
 

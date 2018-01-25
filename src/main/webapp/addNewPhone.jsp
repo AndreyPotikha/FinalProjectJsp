@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>New Laptop</title>
+    <title>New Phone</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -21,14 +21,13 @@
 
         <div class="col-md-4">
             <section class="login-form">
-                <form method="post" action="/newLaptop" role="login">
-                    <img src="image/laptop.jpg" class="img-responsive" alt="" width="300" height="300"/>
+                <form method="post" action="/newPhone" role="login">
+                    <img src="image/phone.jpg" class="img-responsive" alt="" width="300" height="400"/>
                     <input type="text" name="name" placeholder="Name" required class="form-control input-lg"/>
-                    <input type="text" name="cpu" placeholder="Cpu" required class="form-control input-lg"/>
-                    <input type="text" name="ram" placeholder="Ram" required class="form-control input-lg"/>
-                    <input type="text" name="videoCard" placeholder="Video Card" required class="form-control input-lg"/>
-                    <input type="text" name="hardMemory" placeholder="Hard" required class="form-control input-lg"/>
-                    <input type="text" name="imgPath" placeholder="Img path" required class="form-control input-lg"/>
+                    <input type="text" name="diagonal" placeholder="Diagonal" required class="form-control input-lg"/>
+                    <input type="text" name="wifi" placeholder="Wifi" required class="form-control input-lg"/>
+                    <input type="text" name="os" placeholder="os" required class="form-control input-lg"/>
+                    <input type="text" name="imgPath" placeholder="Img Path" required class="form-control input-lg"/>
 
                     <div class="pwstrength_viewport_progress"></div>
 

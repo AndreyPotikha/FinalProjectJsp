@@ -4,17 +4,16 @@ import config.Database;
 import dao.TableDao;
 import model.Phone;
 import model.Table;
+import service.WorkWithJson;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TableDaoImpl implements TableDao {
 
     private static final String FIND_TABLE = "SELECT * FROM `table`";
+    private static final String ADD_TABLE = "INSERT INTO `table` (name, diagonal, wifi, os, imgPath)   VALUE (?, ?, ?, ?, ?)";
 
     @Override
     public List<Table> getTable() {
@@ -53,7 +52,23 @@ public class TableDaoImpl implements TableDao {
 
     @Override
     public void addTable(Table table) {
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(ADD_TABLE)){
 
+            preparedStatement.setString(1, table.getName());
+            preparedStatement.setString(2, table.getDiagonal());
+            preparedStatement.setString(3, table.getWifi());
+            preparedStatement.setString(4, table.getOs());
+            preparedStatement.setString(5, table.getImgPath());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        List<Table> tables = getTable();
+
+        WorkWithJson workWithJson = new WorkWithJson();
+        workWithJson.setTableJson(tables);
     }
 
     @Override

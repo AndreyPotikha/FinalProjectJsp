@@ -51,7 +51,7 @@
         if (status.equals("Admin")) {
     %>
 
-    <a href="#">ADD NEW TABLE</a>
+    <a href="addNewTable.jsp">ADD NEW TABLE</a>
     <%}%>
 </div>
 </form>
