@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ProfileServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = String.valueOf(req.getSession().getAttribute("userName"));
         String email = String.valueOf(req.getSession().getAttribute("userEmail"));
         String status = String.valueOf(req.getSession().getAttribute("userStatus"));
