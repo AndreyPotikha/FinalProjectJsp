@@ -35,31 +35,11 @@
             <section class="login-form">
                 <form method="post" action="/updatePhone" role="login">
                     <img src="image/phone.jpg" class="img-responsive" alt="" width="140" height="150"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old name:</label>
-                        <%= request.getAttribute("name")%><br>
-                    </div>
-                    <input type="text" name="name" placeholder="Name" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old diagonal:</label>
-                        <%= request.getAttribute("diagonal")%><br>
-                    </div>
-                    <input type="text" name="diagonal" placeholder="Diagonal" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old wifi:</label>
-                        <%= request.getAttribute("wifi")%><br>
-                    </div>
-                    <input type="text" name="wifi" placeholder="Wifi" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old os:</label>
-                        <%= request.getAttribute("os")%><br>
-                    </div>
-                    <input type="text" name="os" placeholder="OS" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old img path:</label>
-                        <%= request.getAttribute("imgPath")%><br>
-                    </div>
-                    <input type="text" name="imgPath" placeholder="Img path" required class="form-control input-lg"/>
+                    <input type="text" name="name" placeholder="Name" value=" <%= request.getAttribute("name")%>" required class="form-control input-lg"/>
+                    <input type="text" name="diagonal" placeholder="Diagonal" value="<%= request.getAttribute("diagonal")%>" required class="form-control input-lg"/>
+                    <input type="text" name="wifi" placeholder="Wifi" value="<%= request.getAttribute("wifi")%>" required class="form-control input-lg"/>
+                    <input type="text" name="os" placeholder="OS" value="<%= request.getAttribute("os")%>" required class="form-control input-lg"/>
+                    <input type="text" name="imgPath" placeholder="Img path" value="<%= request.getAttribute("imgPath")%>" required class="form-control input-lg"/>
 
                     <div class="pwstrength_viewport_progress"></div>
 

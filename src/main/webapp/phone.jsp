@@ -69,9 +69,7 @@
     <%}%>
 </div>
 </form>
-<br>
-<br>
-<br>
+
 <%@include file="META-INF/jspf/footer.jspf"%>
 
 </body>

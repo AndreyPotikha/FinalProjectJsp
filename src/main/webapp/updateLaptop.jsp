@@ -35,36 +35,12 @@
             <section class="login-form">
                 <form method="post" action="/updateLaptop" role="login">
                     <img src="image/laptop.jpg" class="img-responsive" alt="" width="300" height="300"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old name:</label>
-                        <%= request.getAttribute("name")%><br>
-                    </div>
-                    <input type="text" name="name" placeholder="Name" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old cpu:</label>
-                        <%= request.getAttribute("cpu")%><br>
-                    </div>
-                    <input type="text" name="cpu" placeholder="Cpu" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old ram:</label>
-                        <%= request.getAttribute("ram")%><br>
-                    </div>
-                    <input type="text" name="ram" placeholder="Ram" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old videoCard:</label>
-                        <%= request.getAttribute("videoCard")%><br>
-                    </div>
-                    <input type="text" name="videoCard" placeholder="Video Card" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old memory:</label>
-                        <%= request.getAttribute("hardMemory")%><br>
-                    </div>
-                    <input type="text" name="hardMemory" placeholder="Hard" required class="form-control input-lg"/>
-                    <div class="form-group">
-                        <label class="aria-current">Old img path:</label>
-                        <%= request.getAttribute("imgPath")%><br>
-                    </div>
-                    <input type="text" name="imgPath" placeholder="Img path" required class="form-control input-lg"/>
+                    <input type="text" name="name" placeholder="Name" value="<%= request.getAttribute("name")%>" required class="form-control input-lg"/>
+                    <input type="text" name="cpu" placeholder="Cpu" value="<%= request.getAttribute("cpu")%>" required class="form-control input-lg"/>
+                    <input type="text" name="ram" placeholder="Ram" value="<%= request.getAttribute("ram")%>" required class="form-control input-lg"/>
+                    <input type="text" name="videoCard" placeholder="Video Card" value="<%= request.getAttribute("videoCard")%>" required class="form-control input-lg"/>
+                    <input type="text" name="hardMemory" placeholder="Hard" value="<%= request.getAttribute("hardMemory")%>" required class="form-control input-lg"/>
+                    <input type="text" name="imgPath" placeholder="Img path" value="<%= request.getAttribute("imgPath")%>" required class="form-control input-lg"/>
 
                     <div class="pwstrength_viewport_progress"></div>
 
