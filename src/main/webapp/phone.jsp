@@ -36,7 +36,21 @@
             <p class="card-text">${elem.diagonal}</p>
             <p class="card-text">${elem.wifi}</p>
             <p class="card-text">${elem.os}</p>
-            <%--<a href="">Detail</a>--%>
+            <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+            <%@ page contentType="text/html;charset=UTF-8" language="java"  session="true" %>
+
+            <%
+                String status = (String) session.getAttribute("userStatus");
+            %>
+
+            <%
+                if (status.equals("Admin")) {
+            %>
+            <br>
+            <a href="/delPhone?name=${elem.name}" name="name" id="name" class="form-control">Delete</a>
+            <a href="/updatePhone?name=${elem.name}" name="name" id="name" class="form-control">Update</a>
+            <%}%>
+
         </div>
   </c:forEach>
     </div>
@@ -50,8 +64,8 @@
     <%
         if (status.equals("Admin")) {
     %>
-
-    <a href="addNewPhone.jsp">ADD NEW PHON</a>
+    <br>
+    <a href="addNewPhone.jsp" style="color: #4099FF">ADD NEW PHON</a>
     <%}%>
 </div>
 </form>

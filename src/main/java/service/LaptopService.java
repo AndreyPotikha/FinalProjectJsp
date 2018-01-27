@@ -8,7 +8,7 @@ public interface LaptopService {
 
     List<Laptop> getLaptops();
 
-    void delLaptops(Laptop laptop);
+    void delLaptops(String name);
 
     void addLaptops(Laptop laptop);
 

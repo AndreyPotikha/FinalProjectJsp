@@ -10,7 +10,7 @@ public interface TableDao {
 
     List<Table> getTable();
 
-    void delTable(Table table);
+    void delTable(String name);
 
     void addTable(Table table);
 

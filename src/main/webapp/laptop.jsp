@@ -20,7 +20,7 @@
 <jsp:useBean id="workWithJson" scope="application" class="service.WorkWithJson"/>
 
 <%@include file="META-INF/jspf/head.jspf"%>
-
+<div id="page-wrap">
 <form method="post" action="#" role="login">
 <div class="row">
     <div class="container">
@@ -32,11 +32,28 @@
             <br>
             <br>
             <img class="card-img-top" src="${elem.imgPath}" height="150" width="230" alt="Card image cap">
+            <%--<input type="text" name="name" class="form-control" placeholder="${elem.name}">--%>
             <h4 class="card-text">${elem.name}</h4>
             <p class="card-text">${elem.cpu}</p>
             <p class="card-text">${elem.ram}</p>
             <p class="card-text">${elem.videoCard}</p>
             <p class="card-text">${elem.hardMemory}</p>
+            <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+            <%@ page contentType="text/html;charset=UTF-8" language="java"  session="true" %>
+
+            <%
+                String status = (String) session.getAttribute("userStatus");
+            %>
+
+            <%
+                if (status.equals("Admin")) {
+            %>
+
+            <br>
+            <a href="/delLaptop?name=${elem.name}" name="name" id="name" class="form-control">Delete</a>
+            <a href="/updateLaptop?name=${elem.name}" name="name" id="name" class="form-control">Update</a>
+            <%}%>
+
             <%--<a href="">Detail</a>--%>
         </div>
   </c:forEach>
@@ -52,14 +69,13 @@
         if (status.equals("Admin")) {
     %>
 
-    <a href="addNewLaptop.jsp">ADD NEW LAPTOP</a>
+    <br>
+    <a href="addNewLaptop.jsp" style="color: #4099FF">ADD NEW LAPTOP</a>
     <%}%>
 </div>
 </form>
+</div>
 
-
-
-<br>
 <%@include file="META-INF/jspf/footer.jspf"%>
 
 </body>

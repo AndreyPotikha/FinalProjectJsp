@@ -15,9 +15,9 @@ public class PhoneServiceImpl implements PhoneService {
     }
 
     @Override
-    public void delPhones(Phone phone) {
+    public void delPhones(String name) {
         PhoneDao phoneDao = new PhoneDaoImpl();
-        phoneDao.delPhone(phone);
+        phoneDao.delPhone(name);
     }
 
     @Override

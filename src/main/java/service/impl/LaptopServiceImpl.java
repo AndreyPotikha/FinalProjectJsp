@@ -15,9 +15,9 @@ public class LaptopServiceImpl implements LaptopService {
     }
 
     @Override
-    public void delLaptops(Laptop laptop) {
+    public void delLaptops(String name) {
         LaptopDao laptopDao = new LaptopDaoImpl();
-        laptopDao.delLaptops(laptop);
+        laptopDao.delLaptops(name);
     }
 
     @Override

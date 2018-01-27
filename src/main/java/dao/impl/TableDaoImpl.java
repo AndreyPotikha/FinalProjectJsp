@@ -14,6 +14,9 @@ public class TableDaoImpl implements TableDao {
 
     private static final String FIND_TABLE = "SELECT * FROM `table`";
     private static final String ADD_TABLE = "INSERT INTO `table` (name, diagonal, wifi, os, imgPath)   VALUE (?, ?, ?, ?, ?)";
+    private static final String DEL_TABLE = "DELETE FROM `table` WHERE name = (?)";
+    private static final String UPDATE_TABLE = "UPDATE `table` SET diagonal = (?), wifi = (?), os = (?), imgPath = (?) WHERE name = (?)";
+
 
     @Override
     public List<Table> getTable() {
@@ -46,8 +49,22 @@ public class TableDaoImpl implements TableDao {
     }
 
     @Override
-    public void delTable(Table table) {
+    public void delTable(String name) {
+        try (Connection connection =Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DEL_TABLE)){
 
+            preparedStatement.setString(1, name);
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        List<Table> tables = getTable();
+
+        WorkWithJson workWithJson = new WorkWithJson();
+        workWithJson.setTableJson(tables);
     }
 
     @Override
@@ -74,5 +91,22 @@ public class TableDaoImpl implements TableDao {
     @Override
     public void updateTable(Table table) {
 
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TABLE)) {
+            preparedStatement.setString(1, table.getDiagonal());
+            preparedStatement.setString(2, table.getWifi());
+            preparedStatement.setString(3, table.getOs());
+            preparedStatement.setString(4, table.getImgPath());
+            preparedStatement.setString(5, table.getName());
+
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        List<Table> tables = getTable();
+
+        WorkWithJson workWithJson = new WorkWithJson();
+        workWithJson.setTableJson(tables);
     }
 }

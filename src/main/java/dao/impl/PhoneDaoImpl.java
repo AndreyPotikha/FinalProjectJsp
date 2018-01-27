@@ -14,6 +14,9 @@ public class PhoneDaoImpl implements PhoneDao {
 
     private static final String FIND_PHONE = "SELECT * FROM phone";
     private static final String ADD_PHONE = "INSERT INTO phone (name, diagonal, wifi, os, imgPath)  VALUE (?, ?, ?, ?, ?)";
+    private static final String DEL_LAPTOP = "DELETE FROM phone WHERE name = (?)";
+    private static final String UPDATE_PHONE = "UPDATE phone SET diagonal = (?), wifi = (?), os = (?), imgPath = (?) WHERE name = (?)";
+
     @Override
     public List<Phone> getPhone() {
 
@@ -46,7 +49,22 @@ public class PhoneDaoImpl implements PhoneDao {
     }
 
     @Override
-    public void delPhone(Phone phone) {
+    public void delPhone(String name) {
+        try (Connection connection =Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DEL_LAPTOP)){
+
+            preparedStatement.setString(1, name);
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        List<Phone> phone = getPhone();
+
+        WorkWithJson workWithJson = new WorkWithJson();
+        workWithJson.setPhoneJson(phone);
 
     }
 
@@ -74,5 +92,22 @@ public class PhoneDaoImpl implements PhoneDao {
     @Override
     public void updatePhone(Phone phone) {
 
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PHONE)) {
+            preparedStatement.setString(1, phone.getDiagonal());
+            preparedStatement.setString(2, phone.getWifi());
+            preparedStatement.setString(3, phone.getOs());
+            preparedStatement.setString(4, phone.getImgPath());
+            preparedStatement.setString(5, phone.getName());
+
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        List<Phone> phones = getPhone();
+
+        WorkWithJson workWithJson = new WorkWithJson();
+        workWithJson.setPhoneJson(phones);
     }
 }

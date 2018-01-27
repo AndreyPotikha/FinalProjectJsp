@@ -15,9 +15,9 @@ public class TableServiceImpl implements TableService {
     }
 
     @Override
-    public void delTable(Table table) {
+    public void delTable(String name) {
         TableDao tableDao = new TableDaoImpl();
-        tableDao.delTable(table);
+        tableDao.delTable(name);
     }
 
     @Override

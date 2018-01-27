@@ -8,7 +8,7 @@ public interface TableService {
 
     List<Table> getTable();
 
-    void delTable(Table table);
+    void delTable(String name);
 
     void addTable(Table table);
 

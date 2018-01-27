@@ -8,7 +8,7 @@ public interface PhoneService {
 
     List<Phone> getPhones();
 
-    void delPhones(Phone phone);
+    void delPhones(String name);
 
     void addPhone(Phone phone);
 

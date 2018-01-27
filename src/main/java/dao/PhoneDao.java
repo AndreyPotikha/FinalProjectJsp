@@ -9,7 +9,7 @@ public interface PhoneDao {
 
     List<Phone> getPhone();
 
-    void delPhone(Phone phone);
+    void delPhone(String name);
 
     void addPhone(Phone phone);
 

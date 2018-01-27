@@ -41,6 +41,8 @@ public class LoginServlet extends HttpServlet {
             }
         }
 
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
+
         LaptopServlet laptopServlet = new LaptopServlet();
         laptopServlet.doPost(req,resp);
 
@@ -51,7 +53,6 @@ public class LoginServlet extends HttpServlet {
         phoneServlet.doPost(req, resp);
 
 
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
 
     }
 }

@@ -16,6 +16,19 @@
 
 <div class="container">
 
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ page contentType="text/html;charset=UTF-8" language="java"  session="true" %>
+
+    <%
+        String status = (String) session.getAttribute("userStatus");
+    %>
+
+    <%
+        if (status.equals("Admin")) {
+    %>
+
+    <br>
+
     <div class="row" id="pwd-container">
         <div class="col-md-4"></div>
 
@@ -44,6 +57,7 @@
 
     </div>
 
+    <%}%>
 
 
 </div>
